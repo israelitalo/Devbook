@@ -13,6 +13,8 @@ class LoginHandler{
                 $loggedUser->setId($data['id']);
                 $loggedUser->setEmail($data['email']);
                 $loggedUser->setName($data['name']);
+                $loggedUser->setBirthdate($data['birthdate']);
+                $loggedUser->setAvatar($data['avatar']);
                 return $loggedUser;
             }
         }

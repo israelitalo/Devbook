@@ -4,9 +4,11 @@
 
     class User extends Model{
 
-    private $id;
-    private $email;
-    private $name;
+        private $id;
+        private $email;
+        private $name;
+        private $birthdate;
+        private $avatar;
 
         public function getId()
         {
@@ -35,7 +37,27 @@
 
         public function setName($name)
         {
-            $this->nome = $name;
+            $this->name = $name;
+        }
+
+        public function getBirthdate()
+        {
+            return $this->birthdate;
+        }
+
+        public function setBirthdate($birthdate)
+        {
+            $this->birthdate = $birthdate;
+        }
+
+        public function getAvatar()
+        {
+            return $this->avatar;
+        }
+
+        public function setAvatar($avatar)
+        {
+            $this->avatar = $avatar;
         }
 
     }

@@ -17,7 +17,18 @@ class HomeController extends Controller {
     }
 
     public function index() {
-        $this->render('home');
+        //separando o nome do usuário logado.
+        $name = $this->loggedUser->getName();
+        //O explode torna a variável $name em um array.
+        $name = explode(' ', $name);
+        $count = count($name);
+        $lastName = $name[$count-1];
+
+        $this->render('home', [
+            'loggedUser' => $this->loggedUser,
+            'name' => $name[0],
+            'lastName' => $lastName
+        ]);
     }
 
 }
