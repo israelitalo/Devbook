@@ -4,7 +4,7 @@
             <div class="feed-new-avatar">
                 <img src="<?=$base;?>/media/avatars/<?=$loggedUser->getAvatar();?>" />
             </div>
-            <div class="feed-new-input-placeholder">O que você está pensando, <?=ucwords($name.' '.$lastName);?>?</div>
+            <div class="feed-new-input-placeholder">O que você está pensando, <?=ucwords($loggedUser->getName());?>?</div>
             <div class="feed-new-input" contenteditable="true"></div>
             <div class="feed-new-send">
                 <img src="<?=$base;?>/assets/images/send.png" />

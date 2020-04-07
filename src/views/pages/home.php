@@ -1,25 +1,29 @@
 <?=$render('header', [
-    'loggedUser' => $loggedUser,
-    'name' => $name,
-    'lastName' => $lastName
+    'loggedUser' => $loggedUser
 ]); ?>
 
 <section class="container main">
-    <?=$render('sidebar');?>
+    <?=$render('sidebar', ['activeMenu' => 'home']);?>
 
         <section class="feed mt-10">
             <div class="row">
                 <div class="column pr-5">
                     <?=$render('feed-editor', [
                         'loggedUser' => $loggedUser,
-                        'name' => $name,
-                        'lastName' => $lastName
                     ]);?>
-                    <?=$render('feed-item', [
-                        'loggedUser' => $loggedUser,
-                        'name' => $name,
-                        'lastName' => $lastName
-                    ]);?>
+                    <?php foreach ($feed['posts'] as $feedItem): ?>
+                        <?=$render('feed-item', [
+                            'loggedUser' => $loggedUser,
+                            'data' => $feedItem
+                        ]);?>
+                    <?php endforeach; ?>
+
+                    <div class="feed-pagination">
+                        <?php for($i = 0; $i<$feed['pageCount'];$i++): ?>
+                            <a class="<?=($i==$feed['currentPage'])?'active':'';?>" href="<?=$base;?>/?page=<?=$i;?>"><?=$i+1;?></a>
+                        <?php endfor; ?>
+                    </div>
+
                 </div>
                 <div class="column side pl-5">
                     <div class="box banners">

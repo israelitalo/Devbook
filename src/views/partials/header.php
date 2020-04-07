@@ -22,7 +22,7 @@
             </div>
             <div class="head-side-right">
                 <a href="<?=$base;?>/perfil" class="user-area">
-                    <div class="user-area-text"><?=ucwords($name.' '.$lastName);?></div>
+                    <div class="user-area-text"><?=ucwords($loggedUser->getName());?></div>
                     <div class="user-area-icon">
                         <img src="<?=$base;?>/media/avatars/<?=$loggedUser->getAvatar();?>" />
                     </div>
